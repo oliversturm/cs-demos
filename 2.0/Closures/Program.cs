@@ -21,7 +21,7 @@ namespace Closures {
 
 
 
-    static Func<int, int> Closures( ) {
+    static Func<int, int> Closures() {
       int baseVal = 10;
 
       Func<int, int> add = val => baseVal + val;

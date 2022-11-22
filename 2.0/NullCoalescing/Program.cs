@@ -9,6 +9,8 @@ namespace NullCoalescing {
   class Program {
     static void Main(string[] args) {
       string hello = "Hello ";
+      // Note for current C# versions: project config has Nullable:disable
+      // In the C# 2.0 timeframe this was not a concern. 
       string name = null;
       string unknown = "unknown user";
 

@@ -8,11 +8,11 @@ using System.Text;
 namespace InterfaceImplementation {
   class Program {
     static void Main(string[] args) {
-      ImplicitImplementation impImp = new ImplicitImplementation( );
+      ImplicitImplementation impImp = new ImplicitImplementation();
       Console.WriteLine(impImp.GetVal("text"));
       Console.WriteLine(impImp.Date);
 
-      IMyInterface expImp = new ExplicitImplementation( );
+      IMyInterface expImp = new ExplicitImplementation();
       Console.WriteLine(expImp.GetVal("text"));
       Console.WriteLine(expImp.Date);
     }

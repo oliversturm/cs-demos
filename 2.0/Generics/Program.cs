@@ -11,15 +11,15 @@ namespace Generics {
     }
 
     // methods/functions
-    static T Create<T>( ) where T : new( ) {
-      return new T( );
+    static T Create<T>() where T : new() {
+      return new T();
     }
   }
 
   // classes
-  public class Factory<T> where T : new( ) {
-    public T Create( ) {
-      return new T( );
+  public class Factory<T> where T : new() {
+    public T Create() {
+      return new T();
     }
   }
 

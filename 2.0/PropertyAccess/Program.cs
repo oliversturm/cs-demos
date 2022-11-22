@@ -19,6 +19,6 @@ namespace PropertyAccess {
         textVal = value;
       }
     }
-    
+
   }
 }

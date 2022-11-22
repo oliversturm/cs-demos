@@ -18,36 +18,36 @@ namespace Dynamic {
       //i.DoSomethingImpossible();
 
       Console.WriteLine("-------------------------------------");
-      PythonScript( );
+      PythonScript();
 
       Console.WriteLine("-------------------------------------");
-      DoFall(new Leaf( ));
-      DoFall(new ExchangeRate( ));
+      DoFall(new Leaf());
+      DoFall(new ExchangeRate());
 
       DoFall(42);
 
       Console.WriteLine("-------------------------------------");
-      foreach (var val in GetStuff( ))
+      foreach (var val in GetStuff())
         Console.WriteLine(val);
 
       Console.WriteLine("-------------------------------------");
-      dynamic myObject = new MyDynamicType( );
-      myObject.Blurb( );
-      myObject.Argh( );
-      myObject.Oops( );
+      dynamic myObject = new MyDynamicType();
+      myObject.Blurb();
+      myObject.Argh();
+      myObject.Oops();
       DoFall(myObject);
     }
 
-    private static void PythonScript( ) {
+    private static void PythonScript() {
       Console.WriteLine("Loading script.py...");
-      ScriptRuntime python = Python.CreateRuntime( );
-      dynamic script = python.UseFile("script.py");
+      ScriptRuntime python = Python.CreateRuntime();
+      dynamic script = python.UseFile("4.0/Dynamic/script.py");
       Console.WriteLine("script.py loaded!");
 
-      script.doSomething( );
+      script.doSomething();
     }
 
-    static IEnumerable<dynamic> GetStuff( ) {
+    static IEnumerable<dynamic> GetStuff() {
       yield return "a string";
       yield return 42;
       yield return true;
@@ -55,7 +55,7 @@ namespace Dynamic {
 
     static void DoFall(dynamic thing) {
       try {
-        thing.Fall( );
+        thing.Fall();
       }
       catch {
         Console.WriteLine("Turns out {0} can't fall.", thing);
@@ -64,7 +64,7 @@ namespace Dynamic {
   }
 
   public class Leaf {
-    public void Fall( ) {
+    public void Fall() {
       Console.WriteLine("Leaf is falling");
     }
   }
@@ -72,7 +72,7 @@ namespace Dynamic {
   public class ExchangeRate {
     public Action Fall {
       get {
-        return ( ) =>
+        return () =>
           Console.WriteLine("Exchange rate is falling");
       }
     }

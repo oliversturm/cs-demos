@@ -8,7 +8,7 @@ using System.Text;
 namespace PartialClasses {
   class Program {
     static void Main(string[] args) {
-      DatabaseMapping databaseMapping = new DatabaseMapping( );
+      DatabaseMapping databaseMapping = new DatabaseMapping();
       //databaseMapping...
     }
   }

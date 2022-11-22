@@ -26,8 +26,8 @@ namespace Delegates {
 
     public delegate int TakeIntReturnIntDelegate(int p);
 
-    static void Foo( ) {
-      
+    static void Foo() {
+
     }
 
     static int Square(int x) {

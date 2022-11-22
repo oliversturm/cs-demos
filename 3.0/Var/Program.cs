@@ -13,7 +13,7 @@ namespace Var {
       var d = 1.5;
 
       var numbers = new int[] { 1, 2, 3 };
-      var orders = new Dictionary<string, Order>( );
+      var orders = new Dictionary<string, Order>();
 
       // Invalid uses:
       //var foo;
@@ -25,7 +25,7 @@ namespace Var {
     //var x = 10;
 
     class Order {
-      public Order( ) {
+      public Order() {
 
       }
     }

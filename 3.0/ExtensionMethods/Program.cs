@@ -10,36 +10,36 @@ namespace ExtensionMethods {
 
   class Program {
     static void Main(string[] args) {
-      string[] strings = { "To be or not to be", 
-                           "That is the question", 
+      string[] strings = { "To be or not to be",
+                           "That is the question",
                            "Whether tis nobler" };
 
       string hamlet = strings.Concatenate(",");
       Console.WriteLine(hamlet);
 
-      42.DoSomething( );
+      42.DoSomething();
 
-      CallSequence( );
+      CallSequence();
     }
 
-    private static void CallSequence( ) {
-      var results = 
+    private static void CallSequence() {
+      var results =
         SequenceHelpers.Take(
           SequenceHelpers.Apply(
             SequenceHelpers.Apply(
-              EndlessListFunction( ), 
-              Square), 
+              EndlessListFunction(),
+              Square),
             x => x / 2),
           10);
 
       var results2 =
-        EndlessListFunction( ).
+        EndlessListFunction().
         Apply(Square).
         Apply(x => x / 2).
         Take(10);
     }
 
-    public static IEnumerable<int> EndlessListFunction( ) {
+    public static IEnumerable<int> EndlessListFunction() {
       int val = 0;
       while (true)
         yield return val++;
@@ -55,12 +55,12 @@ namespace MyStuff {
   public static class StringHelpers {
     public static string Concatenate(
       this IEnumerable<string> strings, string separator) {
-      StringBuilder buffer = new StringBuilder( );
+      StringBuilder buffer = new StringBuilder();
       foreach (string item in strings) {
         buffer.Append(item);
         buffer.Append(separator);
       }
-      return buffer.ToString( );
+      return buffer.ToString();
     }
 
     public static int DoSomething(this int value) {

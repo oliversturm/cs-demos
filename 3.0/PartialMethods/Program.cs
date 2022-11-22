@@ -8,8 +8,8 @@ using System.Text;
 namespace PartialMethods {
   class Program {
     static void Main(string[] args) {
-      var generated = new Generated( );
-      generated.DoSomething( );
+      var generated = new Generated();
+      generated.DoSomething();
     }
   }
 
@@ -19,7 +19,7 @@ namespace PartialMethods {
     // Generated.DoSomething method. You can verify this by
     // looking at Reflector.
 
-    partial void PartialMethod( ) {
+    partial void PartialMethod() {
       Console.WriteLine("Partial Method executed");
     }
   }
@@ -27,11 +27,11 @@ namespace PartialMethods {
   partial class Generated {
     private int generatedField;
 
-    public void DoSomething( ) {
+    public void DoSomething() {
       generatedField = 10;
-      PartialMethod( );
+      PartialMethod();
     }
 
-    partial void PartialMethod( );
+    partial void PartialMethod();
   }
 }

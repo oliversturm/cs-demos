@@ -14,7 +14,7 @@ namespace LambdaExpressions {
       DoSomething(Add10);
 
       // This uses an anonymous method, like C# 2 allows.
-      DoSomething(delegate(int input) {
+      DoSomething(delegate (int input) {
         return input * input;
       });
 

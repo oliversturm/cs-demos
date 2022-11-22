@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace AsyncAwait {
   class Program {
     static void Main(string[] args) {
-//      PrintWaitPrint();
+      //      PrintWaitPrint();
       LoopFiveTimes();
       while (true) {
         Console.WriteLine("Main program is alive, Task id={0}, Thread id={1}", Task.CurrentId, Thread.CurrentThread.ManagedThreadId);
@@ -32,6 +32,7 @@ namespace AsyncAwait {
       // I'll output the thread and task ids on each line. Sometimes it is possible to spot that 
       // different executions are scheduled on different threads (Win8/.NET 4.5). Running in the 
       // debugger seems to make this more likely.
+      // Update - this doesn't render any useful information in modern .NET versions.
 
       try {
         Console.WriteLine("First output from PrintWaitPrint, Task id={0}, Thread id={1}", Task.CurrentId, Thread.CurrentThread.ManagedThreadId);

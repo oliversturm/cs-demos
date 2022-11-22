@@ -13,12 +13,19 @@ namespace AnonymousTypes {
         Age = 33
       };
       var person2 = new {
+        Name = "Sue",
+        Age = 22
+      };
+      var person3 = new {
         Age = 42,
         Name = "Harry"
       };
 
+      // This is no problem - the types are the same
+      person = person2;
+
       // This doesn't work - it's a different type
-      //person = person2;
+      //person = person3;
     }
   }
 }

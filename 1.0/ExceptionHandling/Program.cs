@@ -37,7 +37,7 @@ namespace ExceptionHandling {
       }
       catch (Exception e) {
         Console.WriteLine("Error: {0}", e.Message);
-        throw(e);
+        throw (e);
       }
 
       // Code smell: no "throw"
@@ -64,7 +64,7 @@ namespace ExceptionHandling {
 
   [Serializable]
   public class CustomException : Exception, ISerializable {
-    public CustomException( ) { }
+    public CustomException() { }
 
     public CustomException(string message, char additionalInfo) : base(message) {
       this.additionalInfo = additionalInfo;
@@ -77,9 +77,10 @@ namespace ExceptionHandling {
 
     protected CustomException(SerializationInfo info, StreamingContext context)
       : base(info, context) {
-      this.additionalInfo = (char) info.GetValue("AdditionalInfo", typeof(char));
+      this.additionalInfo = (char)info.GetValue("AdditionalInfo", typeof(char));
     }
 
+    // Illustration only - .NET Core onwards doesn't use this permission stuff
     [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
     public override void GetObjectData(SerializationInfo info, StreamingContext context) {
       base.GetObjectData(info, context);

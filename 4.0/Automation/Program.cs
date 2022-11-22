@@ -1,5 +1,9 @@
 ﻿// Copyright 2010 Oliver Sturm <oliver@sturmnet.org> All rights reserved. 
 
+// Purely for illustration purposes. This type of code would still work,
+// in the right environment and with the right project setup.
+// But for this sample project I'm including it only as a reference.
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,19 +15,19 @@ using Excel = Microsoft.Office.Interop.Excel;
 namespace Automation {
   class Program {
     static void Main(string[] args) {
-      Automation( );
+      Automation();
     }
 
-    static void Automation( ) {
-      dynamic excel = new Excel.Application( );
+    static void Automation() {
+      dynamic excel = new Excel.Application();
 
-      dynamic workbook = excel.Workbooks.Add( );
+      dynamic workbook = excel.Workbooks.Add();
       dynamic sheet = excel.ActiveSheet;
 
       excel.Visible = true;
       // Cells returns a dynamic
       excel.Cells[1, 1] = "Hi from C#!";
-      excel.Columns[1].AutoFit( );
+      excel.Columns[1].AutoFit();
 
       excel.Cells[2, 1] = 10;
       excel.Cells[3, 1] = 15;

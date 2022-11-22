@@ -31,13 +31,13 @@ namespace Iterators {
 
       // With debug output
       Console.WriteLine("Retrieving the list object");
-      IEnumerable<int> list = ThreeNumbersDebug( );
+      IEnumerable<int> list = ThreeNumbersDebug();
       Console.WriteLine("Before the foreach loop");
       foreach (int item in list)
         Console.WriteLine("Got value {0}", item);
 
       // Take the first five elements
-      IEnumerable<int> fiveElementList = Take(EndlessListFunction( ), 5);
+      IEnumerable<int> fiveElementList = Take(EndlessListFunction(), 5);
       foreach (int item in fiveElementList)
         Console.WriteLine(item);
 
@@ -47,28 +47,28 @@ namespace Iterators {
       IEnumerable<int> results =
         Take(
           Apply(
-            Apply(EndlessListFunction( ),
+            Apply(EndlessListFunction(),
               Square),
-            delegate(int x) { return x / 2; }),
+            delegate (int x) { return x / 2; }),
           10);
 
       foreach (int item in results)
         Console.WriteLine(item);
     }
 
-    public static IEnumerable<int> EndlessListFunction( ) {
+    public static IEnumerable<int> EndlessListFunction() {
       int val = 0;
       while (true)
         yield return val++;
     }
 
-    public static IEnumerable<int> ThreeNumbers( ) {
+    public static IEnumerable<int> ThreeNumbers() {
       yield return 3;
       yield return 11;
       yield return 27;
     }
 
-    public static IEnumerable<int> ThreeNumbersDebug( ) {
+    public static IEnumerable<int> ThreeNumbersDebug() {
       Console.WriteLine("Returning 3");
       yield return 3;
       Console.WriteLine("Returning 11");
@@ -110,11 +110,11 @@ namespace Iterators {
   }
 
   public class EndlessListWithoutInterfaces {
-    public EndlessListWithoutInterfaces GetEnumerator( ) {
+    public EndlessListWithoutInterfaces GetEnumerator() {
       return this;
     }
 
-    public bool MoveNext( ) {
+    public bool MoveNext() {
       return true;
     }
 
@@ -124,10 +124,10 @@ namespace Iterators {
   }
 
   public class EndlessListWithInterfaces : IEnumerable, IEnumerator {
-    public EndlessListWithInterfaces( ) {
+    public EndlessListWithInterfaces() {
     }
 
-    public IEnumerator GetEnumerator( ) {
+    public IEnumerator GetEnumerator() {
       return this;
     }
 
@@ -135,11 +135,11 @@ namespace Iterators {
       get { return "something"; }
     }
 
-    public bool MoveNext( ) {
+    public bool MoveNext() {
       return true;
     }
 
-    public void Reset( ) {
+    public void Reset() {
     }
   }
 
@@ -151,30 +151,30 @@ namespace Iterators {
         get { return val; }
       }
 
-      public bool MoveNext( ) {
+      public bool MoveNext() {
         val++;
         return true;
       }
 
-      public void Reset( ) {
+      public void Reset() {
         val = -1;
       }
     }
 
-    public IEnumerator GetEnumerator( ) {
-      return new Enumerator( );
+    public IEnumerator GetEnumerator() {
+      return new Enumerator();
     }
   }
 
   public class EndlessListWithIterators : IEnumerable<int> {
-    IEnumerator<int> IEnumerable<int>.GetEnumerator( ) {
+    IEnumerator<int> IEnumerable<int>.GetEnumerator() {
       int val = 0;
       while (true)
         yield return val++;
     }
 
-    IEnumerator IEnumerable.GetEnumerator( ) {
-      return ((IEnumerable<int>) this).GetEnumerator( );
+    IEnumerator IEnumerable.GetEnumerator() {
+      return ((IEnumerable<int>)this).GetEnumerator();
     }
   }
 }

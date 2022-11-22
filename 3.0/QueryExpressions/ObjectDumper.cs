@@ -42,17 +42,17 @@ public class ObjectDumper {
     Console.ForegroundColor = temp;
   }
 
-  private void WriteIndent( ) {
+  private void WriteIndent() {
     for (int i = 0; i < level; i++)
       writer.Write("  ");
   }
 
-  private void WriteLine( ) {
-    writer.WriteLine( );
+  private void WriteLine() {
+    writer.WriteLine();
     pos = 0;
   }
 
-  private void WriteTab( ) {
+  private void WriteTab() {
     Write("  ");
     while (pos % 8 != 0)
       Write(" ");
@@ -60,18 +60,18 @@ public class ObjectDumper {
 
   private void WriteObject(string prefix, object o) {
     if (o == null || o is ValueType || o is string || o is XElement) {
-      WriteIndent( );
+      WriteIndent();
       Write(prefix);
       WriteValue(o);
-      WriteLine( );
+      WriteLine();
     }
     else if (o is IEnumerable) {
-      foreach (object element in (IEnumerable) o) {
+      foreach (object element in (IEnumerable)o) {
         if (element is IEnumerable && !(element is string)) {
-          WriteIndent( );
+          WriteIndent();
           Write(prefix);
           Write("...");
-          WriteLine( );
+          WriteLine();
           if (level < depth) {
             level++;
             WriteObject(prefix, element);
@@ -84,8 +84,8 @@ public class ObjectDumper {
       }
     }
     else {
-      MemberInfo[] members = o.GetType( ).GetMembers(BindingFlags.Public | BindingFlags.Instance);
-      WriteIndent( );
+      MemberInfo[] members = o.GetType().GetMembers(BindingFlags.Public | BindingFlags.Instance);
+      WriteIndent();
       Write(prefix);
       bool propWritten = false;
       foreach (MemberInfo m in members) {
@@ -93,7 +93,7 @@ public class ObjectDumper {
         PropertyInfo p = m as PropertyInfo;
         if (f != null || p != null) {
           if (propWritten) {
-            WriteTab( );
+            WriteTab();
           }
           else {
             propWritten = true;
@@ -115,7 +115,7 @@ public class ObjectDumper {
         }
       }
       if (propWritten)
-        WriteLine( );
+        WriteLine();
       if (level < depth) {
         foreach (MemberInfo m in members) {
           FieldInfo f = m as FieldInfo;
@@ -141,10 +141,10 @@ public class ObjectDumper {
       Write("null");
     }
     else if (o is DateTime) {
-      Write(((DateTime) o).ToShortDateString( ), cValue);
+      Write(((DateTime)o).ToShortDateString(), cValue);
     }
     else if (o is ValueType || o is string || o is XElement) {
-      Write(o.ToString( ), cValue);
+      Write(o.ToString(), cValue);
     }
     else if (o is IEnumerable) {
       Write("...");

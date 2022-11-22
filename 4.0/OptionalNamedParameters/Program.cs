@@ -23,20 +23,20 @@ namespace OptionalNamedParameters {
       // Calls to functions that return parameter values are evaluated 
       // from left to right, which may not be expected. Better not 
       // to rely on (this kind of) call sequence.
-      DoSomething(y: GetY( ), x: GetX( ));
+      DoSomething(y: GetY(), x: GetX());
 
       // Named and optional parameters in combination allow skipping.
       DoSomethingElse(z: 33);
 
-      var man = new Man( );
-      var human = (Human) man;
+      var man = new Man();
+      var human = (Human)man;
 
       // As expected, resolution according to OO
-      human.Walk( );
-      man.Walk( );
+      human.Walk();
+      man.Walk();
 
       // And still - man hides human implementation, params don't come into it.
-      human.Calculate(x: 10, y:20);
+      human.Calculate(x: 10, y: 20);
       man.Calculate(x: 10, y: 20);
     }
 
@@ -48,12 +48,12 @@ namespace OptionalNamedParameters {
       Console.WriteLine("Two param DoSomething: x={0}, y={1}", x, y);
     }
 
-    static int GetX( ) {
+    static int GetX() {
       Console.WriteLine("Getting X");
       return 10;
     }
 
-    static int GetY( ) {
+    static int GetY() {
       Console.WriteLine("Getting Y");
       return 20;
     }
@@ -64,7 +64,7 @@ namespace OptionalNamedParameters {
   }
 
   public class Human {
-    public virtual void Walk( ) {
+    public virtual void Walk() {
       Console.WriteLine("Human walking");
     }
 
@@ -74,7 +74,7 @@ namespace OptionalNamedParameters {
   }
 
   public class Man : Human {
-    public override void Walk( ) {
+    public override void Walk() {
       Console.WriteLine("Man walking");
     }
 

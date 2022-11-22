@@ -8,12 +8,12 @@ using System.Text;
 namespace StaticClasses {
   class Program {
     static void Main(string[] args) {
-      MyClass.DoIt( );
+      MyClass.DoIt();
     }
   }
 
   public static class MyClass {
-    public static void DoIt( ) {
+    public static void DoIt() {
       Console.WriteLine("I'm doing it!");
     }
   }

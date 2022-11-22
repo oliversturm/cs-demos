@@ -13,9 +13,9 @@ namespace ExpressionTrees {
       Console.WriteLine(lambda(42.0));
 
       Expression<Func<double, double>> expression = e => e * 2 + 1;
-      
+
       // When we write this, we don't execute. Instead, we parse the expression
-      Console.WriteLine(expression.ToString( ));
+      Console.WriteLine(expression.ToString());
 
       // Using the ExpressionDumper class, we can also look at the structure of
       // the expression tree
@@ -40,7 +40,7 @@ namespace ExpressionTrees {
 
       Console.WriteLine(lambdaExpression.ToString());
       // We can compile an expression into a delegate
-      Func<double, double> function = lambdaExpression.Compile( );
+      Func<double, double> function = lambdaExpression.Compile();
 
       // Which we then call 
       Console.WriteLine(function(10));
@@ -50,7 +50,7 @@ namespace ExpressionTrees {
   public class Person {
     public string Name { get; set; }
     public Person() {
-      
+
     }
   }
 }

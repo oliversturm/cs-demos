@@ -11,7 +11,7 @@ namespace InOutVariance {
       // This didn't work in C# 3.0. Now it does.
       // (Test in 2008 for C# 3.0 - setting VS 2010 to C# 3.0 doesn't show the correct behaviour.)
       var strings = new List<string> { "one", "two" };
-    //IList<string>
+      //IList<string>
       IEnumerable<object> objects = strings;
       foreach (object @object in objects)
         Console.WriteLine(@object);
@@ -34,14 +34,14 @@ namespace InOutVariance {
       // be specified on interfaces and delegates, apparently due to a CLR
       // restriction.
       var birdcage = new Cage<Bird>() as ICage<Bird>;
-      var animalcage = (ICage<Animal>) birdcage;
+      var animalcage = (ICage<Animal>)birdcage;
 
       // This second step becomes possible because I'm using "in" on the 
       // IMyComparer interface. I know that EqualTo can accept an Eagle for a Bird,
       // because an Eagle is a type of bird. But the compiler only understands
       // this with the help of the "in" keyword.
-      var eagle = new Eagle( );
-      ((IMyComparer<Eagle>) birdcage).EqualTo(eagle);
+      var eagle = new Eagle();
+      ((IMyComparer<Eagle>)birdcage).EqualTo(eagle);
 
       // The standard IEnumerable<T> interface uses out with its type parameter.
       //IEnumerable<string> foo;
@@ -54,7 +54,9 @@ namespace InOutVariance {
 
   public interface ICage<out T> {
     T GetValue();
-    void AcceptValue(T p);
+    // Uncomment this and you'll see a compile time error because
+    // T is incorrectly used for an in parameter 
+    //void AcceptValue(T p);
   }
 
   public interface IMyComparer<in T> {

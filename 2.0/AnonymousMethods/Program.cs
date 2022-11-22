@@ -9,13 +9,13 @@ namespace AnonymousMethods {
   class Program {
     static void Main(string[] args) {
       TakeIntReturnIntDelegate method1 =
-        delegate(int v) {
+        delegate (int v) {
           return v + 100;
         };
 
       DoSomethingWithDelegate(method1);
 
-      DoSomethingWithDelegate(delegate(int x) { return x / 2; });
+      DoSomethingWithDelegate(delegate (int x) { return x / 2; });
     }
 
     public delegate int TakeIntReturnIntDelegate(int p);
