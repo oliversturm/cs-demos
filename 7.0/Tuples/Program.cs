@@ -25,6 +25,14 @@ namespace Tuples {
       // Using a static type outside the parens is not allowed. Not sure why not.
       // string (first__, last__) = GetName();
 
+      // Variables may be defined before the deconstruction
+      string first__, last__;
+      (first__, last__) = GetName();
+
+      // In C# 7, either none or all variables could be defined
+      // before deconstruction. From C# 10, it can be a mix.
+      (first__, var anotherLast) = GetName();
+
       Console.WriteLine($"Name is {first} {last}");
 
       // Deconstructing my own type
