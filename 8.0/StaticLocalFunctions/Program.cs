@@ -11,6 +11,9 @@
       static void DoMoreStuff() {
         // no capture here -- this does not build
         //Console.WriteLine(txt);
+
+        // Note with C# 9 this is also possible in lambda expressions
+        // and anonymous methods.
       }
 
       DoStuff();

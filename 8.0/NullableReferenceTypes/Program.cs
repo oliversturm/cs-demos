@@ -1,4 +1,6 @@
-﻿namespace NullableReferenceTypes {
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace NullableReferenceTypes {
   public class Thing {
     public Thing(string val) {
       Val = val;
@@ -10,6 +12,13 @@
   }
 
   class Program {
+    // DisallowNull says "the type may support nulls, but we still don't want them"
+    // A bit peculiar in this example, but there are numerous other attributes
+    // available to analyze things.
+    static void DoStuff([DisallowNull] bool? act) {
+      Console.WriteLine($"Doing stuff, act={act}");
+    }
+
     static void Main(string[] args) {
       Thing withValue = new Thing("value");
       withValue.Show();
@@ -41,7 +50,11 @@
       // to assume there is no null value. This is really the chicken
       // way out though, and will probably backfire unless you know
       // very precisely why you're doing it.
-      Console.WriteLine(withoutValue!.Val);
+      //Console.WriteLine(withoutValue!.Val);
+
+      DoStuff(false);
+      // Warning on this one because [DisallowNull] is on the parameter
+      DoStuff(null);
     }
   }
 }
