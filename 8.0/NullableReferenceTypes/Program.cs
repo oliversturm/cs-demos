@@ -23,6 +23,9 @@
       // reference types always accepted null values.
       Thing withoutValue = null;
 
+      // The same thing happens when you use the `default` literal, obviously
+      // Thing withoutValue = default;
+
       // This syntax says we know that there may not be a value -- 
       // the warning goes away.
       // Thing? withoutValue = null;

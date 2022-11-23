@@ -15,6 +15,15 @@ namespace LocalFunctions {
         Console.WriteLine("Doing it right now!");
       }
 
+      // Even compared to very simple lambda declarations, the local function
+      // syntax is often a bit shorter.
+      // Note: sometimes local function syntax has type inference shortcomings.
+      //   See "OldFunctionConstruction" sample in "functional-cs10-samples" repo.
+      // 
+      // Action GoDoIt_ = () => {
+      //   Console.WriteLine("Doing it right now!");
+      // };
+
       GoDoIt();
 
       // Cool thing: local functions can be iterators - lambdas can't
