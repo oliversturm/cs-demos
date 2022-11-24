@@ -40,7 +40,9 @@ namespace RequiredMembers {
       new ProductWithRequiredProperties("Rubber Chicken", 13.99m);
 
       // Perhaps the best way is to use property initialization syntax
-      // when properties have been declaced with `required`.
+      // when properties have been declaced with `required`. After all,
+      // types where initialization is not done with a multi-param ctor
+      // are the main focus of this feature.
       new ProductWithRequiredProperties
       {
         Name = "Rubber Chicken",

@@ -25,6 +25,13 @@ namespace IndexInitializers {
         [3] = "three"
       };
 
+      // Of course the index can use other types as well
+      var colors = new Dictionary<string, string>
+      {
+        ["red"] = "#ff0000",
+        ["green"] = "#00ff00",
+        ["blue"] = "#0000ff"
+      };
     }
   }
 

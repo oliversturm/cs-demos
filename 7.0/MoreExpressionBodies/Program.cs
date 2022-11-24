@@ -28,7 +28,11 @@ namespace MoreExpressionBodies {
       set => ChangeProductPart(index, value);
     }
 
-    // And this is the "old" thing, method implementations:
+    // And this is the "old" thing, method implementations. But beware --
+    // implementations like the Console.WriteLine lines can be confusing
+    // because they don't really return anything and can be seen as 
+    // abuse of the "expressions only" idea. In some peoples' minds,
+    // real expressions should not return void.
     decimal GetCurrentPrice() => 4.3m;
     void SetCurrentPrice(decimal p) => Console.WriteLine("New price is ", p);
     ProductPart GetProductPart(int index) => null;

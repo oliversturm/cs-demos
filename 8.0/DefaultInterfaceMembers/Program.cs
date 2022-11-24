@@ -36,6 +36,20 @@
     public int TheAnswer { get => 1000000000; } // at least!
   }
 
+  // One of the more common cases for standard/fallback implementations.
+  // This reminds of (a feature of) Type Classes in Haskell.
+  interface ICustomEquality<T> {
+    bool EqualTo(T other) => !NotEqualTo(other);
+    bool NotEqualTo(T other) => !EqualTo(other);
+  }
+
+  class Num : ICustomEquality<Num> {
+    public int Val { get; set; }
+    // We only need the one implementation and we get the other one for free --
+    // could choose the other one if it were easier for some reason.
+    bool ICustomEquality<Num>.EqualTo(Num other) => this.Val == other.Val;
+  }
+
   class Program {
     static void Main(string[] args) {
       var things = new List<IMoveable>{
@@ -51,6 +65,15 @@
 
       var elon = (IGuru)new ElonMusk();
       elon.PrintTheAnswer(); // this gives 1 billion
+
+      var num1 = new Num { Val = 42 };
+      var num2 = new Num { Val = 42 };
+      var num3 = new Num { Val = 101 };
+
+      Console.WriteLine($"num1 custom equal to num2: {((ICustomEquality<Num>)num1).EqualTo(num2)}");
+      Console.WriteLine($"num1 custom equal to num3: {((ICustomEquality<Num>)num1).EqualTo(num3)}");
+      Console.WriteLine($"num1 NOT custom equal to num2: {((ICustomEquality<Num>)num1).NotEqualTo(num2)}");
+      Console.WriteLine($"num1 NOT custom equal to num3: {((ICustomEquality<Num>)num1).NotEqualTo(num3)}");
     }
   }
 }

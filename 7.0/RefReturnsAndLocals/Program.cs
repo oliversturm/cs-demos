@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace RefReturnsAndLocals {
   class Program {
     static void Main(string[] args) {
-      // Sample taken from MS blog post:
+      // Sample taken from MS blog post, because it's a good one
 
       ref int Find(int number, int[] numbers) {
         for (int i = 0; i < numbers.Length; i++) {

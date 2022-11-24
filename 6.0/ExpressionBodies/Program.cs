@@ -9,11 +9,10 @@ namespace ExpressionBodies {
     static void Main(string[] args) {
       var counter = new Counter();
       Console.WriteLine(counter.CurrentValue);
-      counter.Increment();
+      Console.WriteLine("Incrementing: {0}", counter.Increment());
       Console.WriteLine(counter.CurrentValue);
-      counter.Increment_();
+      Console.WriteLine("Incrementing: {0}", counter.Increment_());
       Console.WriteLine(counter.CurrentValue);
-
     }
   }
 
