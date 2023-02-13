@@ -19,7 +19,7 @@ namespace CallerArgumentExpressions {
     }
 
     static void Main(string[] args) {
-      Assert(100 == 101);
+      Assert(100 == 101); // The string "100 == 101" will be part of the exception message.
       //Assert(() => 100 == 101);
     }
   }
