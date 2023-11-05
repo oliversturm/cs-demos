@@ -14,6 +14,10 @@
       //return $"Person '{name}' is {age} years old";
       return $"Person '{Name}' is {age} years old";
     }
+
+    // Extra constructors can be included, but they must call the
+    // primary constructor.
+    public Person() : this("John Doe", 33) { }
   }
 
   // Reminder: records create (read-only) public properties by default,
