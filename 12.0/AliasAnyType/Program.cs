@@ -14,7 +14,18 @@
   // The aliases can't have their own generic parameters though.
   //using Curry3<T> = Func<T, Func<T, Func<T, T>>>;
 
+  // Unsafe function pointers are also quite verbose.
+  using unsafe CalcFunction = delegate*<double, double, double>;
+
+  // using static unsafe ... also exists.
+
   static class Program {
+    static double Add(double x, double y) => x + y;
+    static double Mult(double x, double y) => x * y;
+
+    // Now we can use the alias instead of repeating the unsafe delegate type.
+    static unsafe double Calc(CalcFunction f, double x, double y) => f(x, y);
+
     static void Main(string[] args) {
       // Circle is not use automatically -- this is not F#.
       var c1 = (10, 10, 20);
@@ -28,6 +39,13 @@
       // but the type is still the same as before.
       Circle c3 = (10, 10, 20);
       Console.WriteLine($"c3 = {c3}, type of c3={c3.GetType()}");
+
+      unsafe {
+        // Much easier to read if you need it as a type
+        CalcFunction add = &Add;
+        Console.WriteLine($"Add(10,20)={Calc(add, 10, 20)}");
+        Console.WriteLine($"Mult(10,20)={Calc(&Mult, 10, 20)}");
+      }
     }
   }
 }
