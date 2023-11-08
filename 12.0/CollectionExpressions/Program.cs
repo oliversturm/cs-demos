@@ -26,6 +26,11 @@
       int[] primesAndByFives = [..primes, ..OnlyByFives([..evens, ..odds])];
 
       foreach (int i in primesAndByFives) Console.WriteLine(i);
+
+      // Create a new dictionary using assignment -- technically
+      // the [] could contain instances of KeyValuePair<string,int>
+      // I don't like this syntax, but it's there.
+      Dictionary<string,int> dict = []; // or new() ?
     }
   }
 }
