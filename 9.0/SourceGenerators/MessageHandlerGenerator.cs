@@ -1,6 +1,5 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.Operations;
 using Microsoft.CodeAnalysis.Text;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,8 +12,8 @@ public class MessageHandlerGenerator : ISourceGenerator {
     context.RegisterForSyntaxNotifications(() => new SyntaxReceiver());
   }
 
-  public static string GetEventName(string message) =>
-    "On" + Regex.Replace(message.ToLower(), @"(?:^|_)([a-z])",
+  static string GetEventName(string message) =>
+    Regex.Replace(message.ToLower(), @"(?:^|_)([a-z])",
       match => match.Groups[1].Value.ToUpper());
 
   public void Execute(GeneratorExecutionContext context) {
@@ -32,33 +31,19 @@ public class MessageHandlerGenerator : ISourceGenerator {
         .Select(literalExpression => literalExpression.Token.ValueText)
         .Distinct();
 
-      // foreach (var fieldDeclaration in receiver.FieldDeclarations) {
-      //   foreach (var variable in fieldDeclaration.Declaration.Variables) {
-      //     if (variable.Initializer.Value is CollectionExpressionSyntax collection) {
-      //       foreach (var element in collection.Elements) {
-      //         if (element is ExpressionElementSyntax expressionElement &&
-      //             expressionElement.Expression is LiteralExpressionSyntax literalExpression) {
-      //         }
-      //       }
-      //     }
-      //   }
-      // }
-      // }
-      //
-      // if (context.SyntaxReceiver is SyntaxReceiver receiver) {
-      builder.Append(@"
+      var eventNames = messages.Select(GetEventName);
 
-public class MessageHandler {
-  public static string[] HandledMessages = new[] {");
-      foreach (var message in messages) {
-        builder.Append($@"
-    ""{message}"",");
-      }
+      var delegates = eventNames.Select(eventName => $@"public delegate void {eventName}MessageHandler();");
 
+      builder.AppendLine(String.Join("\n", delegates));
 
-      builder.Append(@"
-  };
-}
+      builder.AppendLine(@"
+public class MessageHandler {");
+
+      var events = eventNames.Select(eventName => $@"  public event {eventName}MessageHandler {eventName};");
+      builder.AppendLine(String.Join("\n", events));
+
+      builder.Append(@"}
 ");
     }
     else {

@@ -1,5 +1,3 @@
 namespace SourceGenerators;
 
-public class HandledMessagesAttribute : Attribute {
-
-}
+public class HandledMessagesAttribute : Attribute { }

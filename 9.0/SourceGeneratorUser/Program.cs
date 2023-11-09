@@ -7,12 +7,19 @@ public static class Program {
   static string[] messages = [
     "CREATE_CUSTOMER",
     "UPDATE_CUSTOMER",
-    "PLACE_ORDER"
+    "PLACE_ORDER",
     ];
 
+  //[HandledMessages]
+  private static string[] extraMessages = [
+    "DELETE_CUSTOMER",
+    "CANCEL_ORDER",
+  ];
+
   static void Main() {
-    var myGeneratedClass = new Generated.MyGeneratedClass();
-    myGeneratedClass.MyProperty = "Hello, world!";
-    Console.WriteLine(myGeneratedClass.MyProperty);
+    var messageHandler = new MessageHandler();
+    messageHandler.CreateCustomer += () => Console.WriteLine("CreateCustomer");
+
+    //messageHandler.
   }
 }
