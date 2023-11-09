@@ -1,6 +1,9 @@
-﻿namespace SourceGeneratorUser;
+﻿using SourceGenerators;
+
+namespace SourceGeneratorUser;
 
 public static class Program {
+  [HandledMessages]
   static string[] messages = [
     "CREATE_CUSTOMER",
     "UPDATE_CUSTOMER",

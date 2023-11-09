@@ -9,9 +9,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SourceGenerators\SourceGenerators.csproj" 
-                        OutputItemType="Analyzer"
-                        ReferenceOutputAssembly="false"/>
+        <ProjectReference Include="..\SourceGenerators\SourceGenerators.csproj"
+                          OutputItemType="Analyzer"
+                          ReferenceOutputAssembly="false"/>
+        <ProjectReference Include="..\SourceGenerators\SourceGenerators.csproj"/>
     </ItemGroup>
 
     <ItemGroup>

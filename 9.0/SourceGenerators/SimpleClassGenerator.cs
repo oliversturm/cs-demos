@@ -6,8 +6,6 @@ using System.Text;
 public class SimpleClassGenerator : ISourceGenerator {
   public void Initialize(GeneratorInitializationContext context) {
     // Initialization logic
-    Console.WriteLine("Initializing SimpleClassGenerator");
-
   }
 
   public void Execute(GeneratorExecutionContext context) {
