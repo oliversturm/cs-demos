@@ -50,7 +50,7 @@ public class MessageHandler {");
       builder.AppendLine(@"// Error generating file: SyntaxReceiver is null");
     }
 
-    context.AddSource("MessageHandlerGenerator",
+    context.AddSource("MessageHandlerGenerator.g.cs",
       SourceText.From(builder.ToString(), Encoding.UTF8));
   }
 }
