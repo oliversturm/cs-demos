@@ -5,12 +5,12 @@
         <Nullable>enable</Nullable>
         <RootNamespace>InterceptorSourceGeneratorTarget</RootNamespace>
         <OutputType>Exe</OutputType>
-        <InterceptorsPreviewNamespaces>$(InterceptorsPreviewNamespaces);InterceptorSourceGenerator</InterceptorsPreviewNamespaces>
+<!--        <InterceptorsPreviewNamespaces>$(InterceptorsPreviewNamespaces);InterceptorSourceGenerator</InterceptorsPreviewNamespaces>-->
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\InterceptorSourceGenerator\InterceptorSourceGenerator.csproj"
-                          OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+<!--        <ProjectReference Include="..\InterceptorSourceGenerator\InterceptorSourceGenerator.csproj"-->
+<!--                          OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>-->
     </ItemGroup>
 
 </Project>
