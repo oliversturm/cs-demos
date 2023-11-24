@@ -14,6 +14,10 @@ public class InterceptorSourceGenerator : IIncrementalGenerator {
   public void Initialize(IncrementalGeneratorInitializationContext context) {
     var provider = context.SyntaxProvider
       .CreateSyntaxProvider(
+        // (s, _) => s is InvocationExpressionSyntax ie && ie.Expression is MemberAccessExpressionSyntax ma &&
+        //           ma.Name.Identifier.Text == "WriteLine" && ma.Expression is IdentifierNameSyntax ins &&
+        //           ins.Identifier.Text == "Console",
+        // Nice example here for the use of a complex pattern
         (s, _) => s is InvocationExpressionSyntax {
           Expression: MemberAccessExpressionSyntax {
             Name.Identifier.Text: "WriteLine",
@@ -28,6 +32,8 @@ public class InterceptorSourceGenerator : IIncrementalGenerator {
   }
 
   private static (string filePath, int line, int col)? GetSourceLocation(GeneratorSyntaxContext context) {
+    // Pattern matching, one more time, while extracting a variable
+    // in the middle of the pattern
     if (context.Node is InvocationExpressionSyntax {
           Expression: MemberAccessExpressionSyntax {
             Name.Identifier: SyntaxToken st
