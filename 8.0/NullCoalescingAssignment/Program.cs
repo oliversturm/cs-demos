@@ -42,6 +42,14 @@
 
       // Now we can use one line to do the same thing:
       (list ??= new()).Add("some text");
+
+      // Access COD property below
+      OuterStringList.Add("some text");
     }
+
+    // We can do very nice create-on-demand properties on this basis.
+    private static List<string>? outerStringList;
+    private static List<string> OuterStringList => outerStringList ??= new();
+
   }
 }
