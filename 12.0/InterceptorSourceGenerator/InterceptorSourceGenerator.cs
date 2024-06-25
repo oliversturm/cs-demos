@@ -68,7 +68,7 @@ public class InterceptorSourceGenerator : IIncrementalGenerator {
                    file static class Interceptors {
                      {{attributeLines}}
                      internal static void InterceptorMethod(string? output) {
-                       Console.WriteLine("Intercepted!");
+                       Console.WriteLine($"Intercepted! (Original output: {output})");
                      }
                    }
                  }
