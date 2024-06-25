@@ -12,7 +12,10 @@ namespace AsyncAwait {
     static void Main(string[] args) {
       //      PrintWaitPrint();
       LoopFiveTimes();
-      while (true) {
+
+      DateTime start = DateTime.Now;
+      // Loop for max 15 seconds
+      while (DateTime.Now - start < TimeSpan.FromSeconds(15)) {
         Console.WriteLine("Main program is alive, Task id={0}, Thread id={1}", Task.CurrentId, Thread.CurrentThread.ManagedThreadId);
         Thread.Sleep(100);
       }
