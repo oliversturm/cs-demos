@@ -23,8 +23,8 @@ internal class Program {
     for (int i = 0; i < length; i++) {
       byte value;
       unsafe {
-        byte* ptr = (byte*)startAddress;
-        value = ptr[i];
+        byte* valuePtr = (byte*)startAddress + i;
+        value = *valuePtr;
       }
 
       // yield return must be outside the unsafe block

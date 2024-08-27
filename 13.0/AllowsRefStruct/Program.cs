@@ -13,7 +13,7 @@ internal class Program {
   // Be aware that you can't treat ref structs as objects, so the GetType()
   // call for instance doesn't work.
   private static void TakeThis<T>(T thing) /* where T : allows ref struct */ {
-    Console.WriteLine("Took a thing, it's type is " + thing.GetType());
+    Console.WriteLine($"Took a thing, its type is {thing.GetType()}");
   }
 
   // Microsoft says they already have many library methods that use ref structs,

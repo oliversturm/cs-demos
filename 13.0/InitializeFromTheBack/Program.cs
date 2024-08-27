@@ -5,9 +5,9 @@
 // works only in this pretty specific case.
 internal class Program {
   private static void Main() {
-    Numbers x = new()
+    CalculationMatrix x = new()
     {
-      Values =
+      MagicValues =
       {
         [1] = 111, [^1] = 999 // Works starting in C# 13
       }
@@ -16,12 +16,13 @@ internal class Program {
     };
 
     // My note: of course we can do individual assignments, but that's not new.
-    int[] moreNums = new int[5];
-    moreNums[^1] = 5;
-    moreNums[^2] = 4;
+    int[] numbers = new int[5];
+    Index i = ^1;
+    numbers[i] = 5;
+    numbers[^2] = 4;
   }
 }
 
-internal class Numbers {
-  public int[] Values { get; set; } = new int[10];
+public class CalculationMatrix {
+  public int[] MagicValues { get; set; } = new int[10];
 }

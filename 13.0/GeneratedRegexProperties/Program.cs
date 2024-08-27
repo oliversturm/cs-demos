@@ -10,6 +10,10 @@ public static partial class Program {
   private static partial Regex MyRegexProperty { get; }
 
   public static void Main(string[] args) {
-    Console.WriteLine("Hello World!");
+    string testString = "Wer weiss, dass er nichts weiss...";
+
+    int count1 = MyRegex().Count(testString);
+    // Much nicer, no confusion about the method call
+    int count2 = MyRegexProperty.Count(testString);
   }
 }

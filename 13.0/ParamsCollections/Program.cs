@@ -6,18 +6,19 @@ internal class Program {
     AcceptSeveralIntsNewStyle(6, 7, 8, 9, 10);
     AcceptSeveralIntsAlternativeNewStyle(11, 12, 13, 14, 15);
 
-    // Error message says: "The type arguments cannot be inferred from the usage."
-    // Not true anymore -- span is preferred.
+    // Old error message says: "The type arguments cannot be inferred from the usage."
+    // Not true in this case, since the non-interface type is chosen.
+    // In this demo program, that's the span.
     TakeThis(16, 17, 18, 19, 20);
 
-    List<int> list = new()
-    {
+    List<int> list =
+    [
       21,
       22,
       23,
       24,
       25
-    };
+    ];
     // Still a span!
     TakeThis(list);
 
