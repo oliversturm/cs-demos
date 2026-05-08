@@ -2,6 +2,9 @@ using System.Runtime.CompilerServices;
 
 namespace Interceptors;
 
+// Note: this method was the correct one when the feature first came out, but
+// now it generates various deprecation warnings although the mechanism still works.
+
 public static class InterceptsStuff {
   const string targetFile = "/Users/oli/git/cs-demos/12.0/Interceptors/Program.cs";
 
