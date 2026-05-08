@@ -17,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10.0", "10.0", "{39BFB002-5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallerArgumentExpressions", "10.0\CallerArgumentExpressions\CallerArgumentExpressions.csproj", "{9AB0FDEC-B40D-4D70-B5BD-CA1FD4015958}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaExpressions", "10.0\LambdaExpressions\LambdaExpressions.csproj", "{99624C9B-D58E-4625-8973-A37C9011A7D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaExpressionInference", "10.0\LambdaExpressionInference\LambdaExpressionInference.csproj", "{99624C9B-D58E-4625-8973-A37C9011A7D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordTypes", "10.0\RecordTypes\RecordTypes.csproj", "{D64475FE-F9EB-460F-BEFC-64D2BDB9AD86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordTypes10", "10.0\RecordTypes10\RecordTypes10.csproj", "{D64475FE-F9EB-460F-BEFC-64D2BDB9AD86}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WithNews", "10.0\WithNews\WithNews.csproj", "{0C50FB30-D028-48B7-BF22-839D9B699218}"
 EndProject

@@ -1,4 +1,4 @@
-﻿namespace RecordTypes {
+﻿namespace RecordTypes10 {
   // Here's the product again from C# 9
   public record Product(string Name, decimal Price);
 

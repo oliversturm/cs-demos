@@ -1,4 +1,4 @@
-﻿namespace LambdaExpressions {
+﻿namespace LambdaExpressionInference {
   public abstract record Thing(string Name);
   public record SingingThing(string Name, string Song) : Thing(Name);
   public record DancingThing(string Name, string Rhythm) : Thing(Name);
