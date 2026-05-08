@@ -287,3 +287,4 @@ __pycache__/
 *.xsd.cs
 
 runall-output.txt
+.DS_Store
