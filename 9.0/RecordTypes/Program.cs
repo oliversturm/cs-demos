@@ -47,6 +47,13 @@
     }
   }
 
+	// It has become a common convention to use records to simulate discriminated unions -
+	// not a language feature, but a useful pattern for modeling data that can be one of
+	// several different types. This is a simple example of that pattern.
+	public abstract record Shape {
+		public sealed record Circle(double Radius) : Shape;
+		public sealed record Rectangle(double Width, double Height) : Shape;
+	}
 
   class Program {
     static void Main(string[] args) {
