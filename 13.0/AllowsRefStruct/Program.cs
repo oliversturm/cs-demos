@@ -14,6 +14,7 @@ internal class Program {
   // call for instance doesn't work.
   private static void TakeThis<T>(T thing) /* where T : allows ref struct */ {
     Console.WriteLine($"Took a thing, its type is {thing.GetType()}");
+    Console.WriteLine($"Took a {typeof(T)}");
   }
 
   // Microsoft says they already have many library methods that use ref structs,
