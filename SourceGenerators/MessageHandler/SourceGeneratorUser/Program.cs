@@ -3,6 +3,7 @@
 namespace SourceGeneratorUser;
 
 public static class Program {
+  // Basic set of messages get auto-created event handlers
   [HandledMessages]
   static string[] messages = [
     "CREATE_CUSTOMER",
@@ -10,6 +11,8 @@ public static class Program {
     "PLACE_ORDER",
     ];
 
+  // Uncomment this and look at Intellisense below -
+  // the extra messages are included immediately
   //[HandledMessages]
   private static string[] extraMessages = [
     "DELETE_CUSTOMER",
@@ -18,8 +21,8 @@ public static class Program {
 
   static void Main() {
     var messageHandler = new MessageHandler();
-    messageHandler.CreateCustomer += () => Console.WriteLine("CreateCustomer");
 
+    // Remove comment and check out Intellisense after the .
     //messageHandler.
   }
 }
