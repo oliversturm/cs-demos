@@ -9,7 +9,7 @@
       Console.WriteLine(mult(10, 3));
 
       // btw, it also works for anonymous methods
-      Func<int, int, int> add = static delegate (int x, int y) { return x + y; };
+      Func<int, int, int> add = static delegate(int x, int y) { return x + y; };
 
       // Now for something completely different: discards.
 

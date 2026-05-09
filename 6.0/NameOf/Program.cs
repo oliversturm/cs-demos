@@ -14,7 +14,6 @@ namespace NameOf {
 
       // we can refer to methods as well:
       Console.WriteLine(nameof(Console.WriteLine));
-
     }
 
     // When there's the need to include the names of types or variables in program

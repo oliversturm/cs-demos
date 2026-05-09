@@ -35,14 +35,16 @@ public class MessageHandlerGenerator : ISourceGenerator {
 
       var eventNames = messages.Select(GetEventName);
 
-      var delegates = eventNames.Select(eventName => $@"public delegate void {eventName}MessageHandler();");
+      var delegates = eventNames.Select(eventName =>
+        $@"public delegate void {eventName}MessageHandler();");
 
       builder.AppendLine(String.Join("\n", delegates));
 
       builder.AppendLine(@"
 public class MessageHandler {");
 
-      var events = eventNames.Select(eventName => $@"  public event {eventName}MessageHandler {eventName};");
+      var events = eventNames.Select(eventName =>
+        $@"  public event {eventName}MessageHandler {eventName};");
       builder.AppendLine(String.Join("\n", events));
 
       builder.Append(@"}

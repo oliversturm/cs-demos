@@ -38,7 +38,8 @@
   // Records can derive from other records -- not from classes, and classes not from records
   // Note that Price does not create a new property on this level -- change to "price" or 
   // another name altogether and then it does.
-  public record RubberChicken(decimal Price, bool IncludesPulley) : Product("Rubber Chicken", Price) {
+  public record RubberChicken(decimal Price, bool IncludesPulley)
+    : Product("Rubber Chicken", Price) {
     // Records can include methods
     public void TravelWithPulley() {
       if (!IncludesPulley)
@@ -47,13 +48,13 @@
     }
   }
 
-	// It has become a common convention to use records to simulate discriminated unions -
-	// not a language feature, but a useful pattern for modeling data that can be one of
-	// several different types. This is a simple example of that pattern.
-	public abstract record Shape {
-		public sealed record Circle(double Radius) : Shape;
-		public sealed record Rectangle(double Width, double Height) : Shape;
-	}
+  // It has become a common convention to use records to simulate discriminated unions -
+  // not a language feature, but a useful pattern for modeling data that can be one of
+  // several different types. This is a simple example of that pattern.
+  public abstract record Shape {
+    public sealed record Circle(double Radius) : Shape;
+    public sealed record Rectangle(double Width, double Height) : Shape;
+  }
 
   class Program {
     static void Main(string[] args) {
@@ -98,7 +99,9 @@
 
       // Nondestructive mutation -- i.e. cloning with changes. Supported directly,
       // and very performantly. Definitely the way to go for immutable data patterns.
-      var moreExpensiveRubberChickenButNoPulley = rubberChicken with { Price = 18.99m, IncludesPulley = false };
+      var moreExpensiveRubberChickenButNoPulley = rubberChicken with {
+        Price = 18.99m, IncludesPulley = false
+      };
       Console.WriteLine(moreExpensiveRubberChickenButNoPulley);
     }
   }

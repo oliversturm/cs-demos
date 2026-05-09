@@ -9,23 +9,12 @@ namespace Closures {
   class Program {
     static void Main(string[] args) {
       Console.WriteLine(Closures()(30));
-
-
-
-
-
     }
-
-
-
-
-
 
     static Func<int, int> Closures() {
       int baseVal = 10;
 
       Func<int, int> add = val => baseVal + val;
-
 
       Console.WriteLine(add(10));
 

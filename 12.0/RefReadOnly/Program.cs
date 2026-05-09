@@ -31,7 +31,7 @@
     // They can't change the value.
     // This closes the gap: accept only variables, not literals,
     // but don't allow changes.
-    static void AcceptRefReadOnly (ref readonly int x) {
+    static void AcceptRefReadOnly(ref readonly int x) {
       // Value can be read
       Console.WriteLine(x);
 

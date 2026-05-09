@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace Literals {
   class Program {
     static void Main(string[] args) {
-
       // separators - can be used wherever you want :)
       var i = 987_65_4_3;
       Console.WriteLine(i);

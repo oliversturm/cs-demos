@@ -7,8 +7,7 @@ using System.Text;
 
 namespace AutoImplementedProperties {
   class Program {
-    static void Main(string[] args) {
-    }
+    static void Main(string[] args) { }
   }
 
   public class Person {

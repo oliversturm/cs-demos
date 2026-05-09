@@ -10,7 +10,9 @@
     }
 
     static void Main(string[] args) {
-      var words = "There's a lady who's sure all that glitters is gold and she's buying a stairway to heaven".Split(' ');
+      var words =
+        "There's a lady who's sure all that glitters is gold and she's buying a stairway to heaven"
+          .Split(' ');
 
       Output(words[1..3]); // Items 1 to 3, excluding 3
       Output(words[..3]); // Start (0) to 3, excluding
@@ -56,7 +58,6 @@
       Console.WriteLine(wrappedInts[^15]);
       Output(wrappedInts[11..33]);
     }
-
   }
 
   public static class EnumerableIndexExtensions {

@@ -40,7 +40,6 @@
       var p1_ = new Product("Rubber Chicken", 13.99m);
       Console.WriteLine($"Reference equals: {Object.ReferenceEquals(p1, p1_)}");
       Console.WriteLine($"Value equality: {p1 == p1_}");
-
     }
   }
 }

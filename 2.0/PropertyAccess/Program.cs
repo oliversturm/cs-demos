@@ -7,8 +7,7 @@ using System.Text;
 
 namespace PropertyAccess {
   class Program {
-    static void Main(string[] args) {
-    }
+    static void Main(string[] args) { }
   }
 
   public class MyData {
@@ -19,6 +18,5 @@ namespace PropertyAccess {
         textVal = value;
       }
     }
-
   }
 }

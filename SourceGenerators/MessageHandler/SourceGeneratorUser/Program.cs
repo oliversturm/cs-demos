@@ -9,7 +9,7 @@ public static class Program {
     "CREATE_CUSTOMER",
     "UPDATE_CUSTOMER",
     "PLACE_ORDER",
-    ];
+  ];
 
   // Uncomment this and look at Intellisense below -
   // the extra messages are included immediately

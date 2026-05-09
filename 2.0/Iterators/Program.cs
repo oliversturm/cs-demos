@@ -49,7 +49,7 @@ namespace Iterators {
           Apply(
             Apply(EndlessListFunction(),
               Square),
-            delegate (int x) { return x / 2; }),
+            delegate(int x) { return x / 2; }),
           10);
 
       foreach (int item in results)
@@ -98,7 +98,8 @@ namespace Iterators {
         yield return Square(val);
     }
 
-    public static IEnumerable<int> Apply(IEnumerable<int> values, Func<int, int> calculation) {
+    public static IEnumerable<int> Apply(IEnumerable<int> values,
+      Func<int, int> calculation) {
       foreach (int val in values)
         yield return calculation(val);
     }
@@ -124,8 +125,7 @@ namespace Iterators {
   }
 
   public class EndlessListWithInterfaces : IEnumerable, IEnumerator {
-    public EndlessListWithInterfaces() {
-    }
+    public EndlessListWithInterfaces() { }
 
     public IEnumerator GetEnumerator() {
       return this;
@@ -139,8 +139,7 @@ namespace Iterators {
       return true;
     }
 
-    public void Reset() {
-    }
+    public void Reset() { }
   }
 
   public class EndlessList : IEnumerable {

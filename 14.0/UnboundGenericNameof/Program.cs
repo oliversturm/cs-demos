@@ -3,13 +3,13 @@ namespace UnboundGenericNameof;
 class Program {
   static void Main(string[] args) {
     // Before C# 14, nameof() required a closed generic type:
-    Console.WriteLine(nameof(List<int>));       // "List"
+    Console.WriteLine(nameof(List<int>)); // "List"
     Console.WriteLine(nameof(Dictionary<int, string>)); // "Dictionary"
 
     // Now you can use unbound generic types -- no need to pick
     // an arbitrary type argument just to get the name.
-    Console.WriteLine(nameof(List<>));           // "List"
-    Console.WriteLine(nameof(Dictionary<,>));    // "Dictionary"
+    Console.WriteLine(nameof(List<>)); // "List"
+    Console.WriteLine(nameof(Dictionary<,>)); // "Dictionary"
 
     // This is particularly useful for logging and diagnostics where
     // you want to refer to a generic type without committing to a

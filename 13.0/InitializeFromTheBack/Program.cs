@@ -5,10 +5,8 @@
 // works only in this pretty specific case.
 internal class Program {
   private static void Main() {
-    CalculationMatrix x = new()
-    {
-      MagicValues =
-      {
+    CalculationMatrix x = new() {
+      MagicValues = {
         [1] = 111, [^1] = 999 // Works starting in C# 13
       }
       // x.Values[1] is 111

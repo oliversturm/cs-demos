@@ -29,7 +29,6 @@ namespace ThrowExpressions {
       return o ?? throw new ArgumentNullException();
     }
 
-    static void Main(string[] args) {
-    }
+    static void Main(string[] args) { }
   }
 }

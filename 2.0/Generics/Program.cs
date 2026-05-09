@@ -7,8 +7,7 @@ using System.Text;
 
 namespace Generics {
   class Program {
-    static void Main(string[] args) {
-    }
+    static void Main(string[] args) { }
 
     // methods/functions
     static T Create<T>() where T : new() {

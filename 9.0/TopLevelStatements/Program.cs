@@ -32,4 +32,3 @@ Console.WriteLine("This is unreachable.");
 // I use it (and behind any other statements, for that matter). That's 
 // seriously weird for teaching materials in particular.
 class MyType { }
-

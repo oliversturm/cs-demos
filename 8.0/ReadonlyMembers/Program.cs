@@ -32,12 +32,12 @@
       set => variable = value;
     }
 
-    public readonly override string ToString() => $"WeirdRect ({Width},{Height}, Variable={Variable})";
+    public readonly override string ToString() =>
+      $"WeirdRect ({Width},{Height}, Variable={Variable})";
   }
 
   class Program {
     static void Main(string[] args) {
-
       Console.WriteLine(new ReadonlyRect(5, 2));
       Console.WriteLine(new WeirdRect(5, 2));
 
@@ -47,4 +47,3 @@
     }
   }
 }
-

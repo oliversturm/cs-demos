@@ -43,11 +43,7 @@ namespace RequiredMembers {
       // when properties have been declaced with `required`. After all,
       // types where initialization is not done with a multi-param ctor
       // are the main focus of this feature.
-      new ProductWithRequiredProperties
-      {
-        Name = "Rubber Chicken",
-        Price = 13.99m
-      };
+      new ProductWithRequiredProperties { Name = "Rubber Chicken", Price = 13.99m };
     }
   }
 }

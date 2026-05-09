@@ -34,7 +34,8 @@
 
       var oliRecord = new PersonRecord("Oli", 42);
       Console.WriteLine(oliRecord);
-      Console.WriteLine($"(From outside) Person {oliRecord.Name} is {oliRecord.Age} years old");
+      Console.WriteLine(
+        $"(From outside) Person {oliRecord.Name} is {oliRecord.Age} years old");
     }
   }
 }

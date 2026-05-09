@@ -29,8 +29,7 @@
     }
   }
 
-  class Sun : IMoveable, IGuru {
-  }
+  class Sun : IMoveable, IGuru { }
 
   class ElonMusk : IGuru {
     public int TheAnswer { get => 1000000000; } // at least!
@@ -52,9 +51,7 @@
 
   class Program {
     static void Main(string[] args) {
-      var things = new List<IMoveable>{
-        new Bird(), new Jogger(), new Sun()
-      };
+      var things = new List<IMoveable> { new Bird(), new Jogger(), new Sun() };
       foreach (var t in things) {
         t.Move();
       }
@@ -70,10 +67,14 @@
       var num2 = new Num { Val = 42 };
       var num3 = new Num { Val = 101 };
 
-      Console.WriteLine($"num1 custom equal to num2: {((ICustomEquality<Num>)num1).EqualTo(num2)}");
-      Console.WriteLine($"num1 custom equal to num3: {((ICustomEquality<Num>)num1).EqualTo(num3)}");
-      Console.WriteLine($"num1 NOT custom equal to num2: {((ICustomEquality<Num>)num1).NotEqualTo(num2)}");
-      Console.WriteLine($"num1 NOT custom equal to num3: {((ICustomEquality<Num>)num1).NotEqualTo(num3)}");
+      Console.WriteLine(
+        $"num1 custom equal to num2: {((ICustomEquality<Num>)num1).EqualTo(num2)}");
+      Console.WriteLine(
+        $"num1 custom equal to num3: {((ICustomEquality<Num>)num1).EqualTo(num3)}");
+      Console.WriteLine(
+        $"num1 NOT custom equal to num2: {((ICustomEquality<Num>)num1).NotEqualTo(num2)}");
+      Console.WriteLine(
+        $"num1 NOT custom equal to num3: {((ICustomEquality<Num>)num1).NotEqualTo(num3)}");
     }
   }
 }

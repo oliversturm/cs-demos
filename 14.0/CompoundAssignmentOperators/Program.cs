@@ -45,7 +45,7 @@ class PartyCounter(string name) {
   //   - Not static (it's an instance method, modifying `this`)
   //   - Returns void (mutation in place, no new object)
   //   - Takes one parameter (the right-hand operand)
-  public void operator +=(int partySize) {
+  public void operator += (int partySize) {
     Console.WriteLine("  (operator+= called -- modifying in place)");
     Count += partySize;
   }

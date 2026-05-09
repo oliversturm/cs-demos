@@ -50,6 +50,5 @@
     // We can do very nice create-on-demand properties on this basis.
     private static List<string>? outerStringList;
     private static List<string> OuterStringList => outerStringList ??= new();
-
   }
 }

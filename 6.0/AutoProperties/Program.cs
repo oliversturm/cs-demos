@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoProperties {
   class Program {
-    static void Main(string[] args) {
-    }
+    static void Main(string[] args) { }
   }
 
   public class Car {

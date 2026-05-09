@@ -8,12 +8,7 @@ using System.Text;
 namespace Initializers {
   class Program {
     static void Main(string[] args) {
-      Person person = new Person
-      {
-        Name = "Willy",
-        Age = 42
-      };
-
+      Person person = new Person { Name = "Willy", Age = 42 };
     }
   }
 
@@ -22,8 +17,7 @@ namespace Initializers {
     //      this.name = name;
     //      this.age = age;
     //    }
-    public Person() {
-    }
+    public Person() { }
     private string name;
     public string Name {
       get { return name; }

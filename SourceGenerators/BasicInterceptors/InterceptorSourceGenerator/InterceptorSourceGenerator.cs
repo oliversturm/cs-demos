@@ -6,7 +6,6 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 
-
 namespace InterceptorSourceGenerator;
 
 [Generator]
@@ -45,7 +44,6 @@ public class InterceptorSourceGenerator : IIncrementalGenerator {
 
   private void GenerateCode(SourceProductionContext ctx,
     ImmutableArray<(int Version, string Data, string Display)> locations) {
-
     if (locations.IsEmpty) return;
 
     // Build the InterceptsLocation attributes for each call site.

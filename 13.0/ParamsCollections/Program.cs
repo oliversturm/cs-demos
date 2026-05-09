@@ -11,8 +11,7 @@ internal class Program {
     // In this demo program, that's the span.
     TakeThis(16, 17, 18, 19, 20);
 
-    List<int> list =
-    [
+    List<int> list = [
       21,
       22,
       23,
@@ -45,7 +44,8 @@ internal class Program {
     }
   }
 
-  private static void AcceptSeveralIntsAlternativeNewStyle(params ReadOnlySpan<int> values) {
+  private static void AcceptSeveralIntsAlternativeNewStyle(
+    params ReadOnlySpan<int> values) {
     foreach (int value in values) {
       Console.WriteLine(value);
     }

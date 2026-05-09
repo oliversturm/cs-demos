@@ -58,7 +58,6 @@ namespace ExceptionHandling {
         Console.WriteLine("Error: {0}", e.Message);
         throw;
       }
-
     }
   }
 
@@ -89,7 +88,8 @@ namespace ExceptionHandling {
 
     public override string Message {
       get {
-        return String.Format(CultureInfo.CurrentCulture, "{0}, AdditionalInfo: {1}", base.Message, AdditionalInfo);
+        return String.Format(CultureInfo.CurrentCulture, "{0}, AdditionalInfo: {1}",
+          base.Message, AdditionalInfo);
       }
     }
 

@@ -36,13 +36,13 @@ namespace MoreExpressionBodies {
     decimal GetCurrentPrice() => 4.3m;
     void SetCurrentPrice(decimal p) => Console.WriteLine("New price is ", p);
     ProductPart GetProductPart(int index) => null;
-    void ChangeProductPart(int index, ProductPart value) => Console.WriteLine($"Using part {value} for index {index}");
+    void ChangeProductPart(int index, ProductPart value) =>
+      Console.WriteLine($"Using part {value} for index {index}");
   }
 
   public class ProductPart { }
 
   class Program {
-    static void Main(string[] args) {
-    }
+    static void Main(string[] args) { }
   }
 }

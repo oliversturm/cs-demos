@@ -22,11 +22,9 @@ namespace DelegateVariance {
       GetAnimalDelegate delegate2 = GetBird;
     }
 
-    static void WorkWithAnimal(Animal animal) {
-    }
+    static void WorkWithAnimal(Animal animal) { }
 
-    static void WorkWithBird(Bird bird) {
-    }
+    static void WorkWithBird(Bird bird) { }
 
     static Animal GetAnimal() {
       return new Animal();
@@ -40,9 +38,7 @@ namespace DelegateVariance {
     delegate Animal GetAnimalDelegate();
   }
 
-  public class Animal {
-  }
+  public class Animal { }
 
-  public class Bird : Animal {
-  }
+  public class Bird : Animal { }
 }

@@ -28,26 +28,26 @@
       Console.WriteLine();
 
       var longTextRaw = """"
-        Raw string literals are denoted by at least three quotes (""") 
-        at the start and the end. This example uses four quotes,
-        because we want to include three quotes """ as part of the text.
-        Note how the base indent of the code is recognized and removed.
-        """";
+                        Raw string literals are denoted by at least three quotes (""") 
+                        at the start and the end. This example uses four quotes,
+                        because we want to include three quotes """ as part of the text.
+                        Note how the base indent of the code is recognized and removed.
+                        """";
       Console.WriteLine("Long text (raw) following:\n");
       Console.WriteLine(longTextRaw);
       Console.WriteLine();
 
       var rawInterpolated = $"""
-        This is some raw text with a value in it: "{Math.Sin(6.9)}"
-        """;
+                             This is some raw text with a value in it: "{Math.Sin(6.9)}"
+                             """;
       Console.WriteLine(rawInterpolated);
       Console.WriteLine();
 
       var rawInterpolatedWithBraces = $$"""
-        In this case we want to use curly braces ('{' and '}') in the
-        text, so we use two $ signs at the start so that interpolation
-        requires a double brace pair: "{{Math.Sin(6.9)}}"
-        """;
+                                        In this case we want to use curly braces ('{' and '}') in the
+                                        text, so we use two $ signs at the start so that interpolation
+                                        requires a double brace pair: "{{Math.Sin(6.9)}}"
+                                        """;
       Console.WriteLine(rawInterpolatedWithBraces);
       Console.WriteLine();
     }

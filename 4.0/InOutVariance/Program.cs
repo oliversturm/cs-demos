@@ -18,7 +18,6 @@ namespace InOutVariance {
 
       //objects.Add(42);
 
-
       // The reason this never worked is that you could then try to
       // write code like this - obviously not intended to work.
       // This cast results in a runtime exception:
@@ -76,12 +75,9 @@ namespace InOutVariance {
     }
   }
 
-  public class Animal {
-  }
+  public class Animal { }
 
-  public class Bird : Animal {
-  }
+  public class Bird : Animal { }
 
-  public class Eagle : Bird {
-  }
+  public class Eagle : Bird { }
 }

@@ -10,11 +10,9 @@ namespace UsingStaticClasses {
   // be sure to declare the class "static" if you'd like to be able
   // to use it with a using statement
   using static Helpers;
-
   using static System.Linq.Enumerable;
 
   class Program {
-
     static void Main(string[] args) {
       WriteLine("output");
 
@@ -34,12 +32,10 @@ namespace UsingStaticClasses {
       // Using Where as an extension method is possible (the extension
       // is brought into scope by the using statement) 
       var oddNumbers_ = range.Where(x => x % 2 == 1);
-
     }
   }
 }
 
 public static class Helpers {
-  public static void DoSomethingToHelp() {
-  }
+  public static void DoSomethingToHelp() { }
 }

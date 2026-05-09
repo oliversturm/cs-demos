@@ -2,7 +2,6 @@
 
 namespace CallerArgumentExpressions {
   class Program {
-
     // The compiler creates the string passed to `messageThat`, in a 
     // form that would be impossible to retrieve at runtime.
     static void Assert(bool that,
@@ -19,7 +18,8 @@ namespace CallerArgumentExpressions {
     }
 
     static void Main(string[] args) {
-      Assert(100 == 101); // The string "100 == 101" will be part of the exception message.
+      Assert(100 ==
+             101); // The string "100 == 101" will be part of the exception message.
       //Assert(() => 100 == 101);
     }
   }

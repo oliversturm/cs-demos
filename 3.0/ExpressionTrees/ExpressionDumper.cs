@@ -199,7 +199,8 @@ public static class ExpressionDumper {
     textWriter.WriteLine();
   }
 
-  private static void OutputSubExpression(Expression expression, TextWriter textWriter, int indent, string label) {
+  private static void OutputSubExpression(Expression expression, TextWriter textWriter,
+    int indent, string label) {
     if (expression != null) {
       WriteLineWithIndent(textWriter, indent + IndentSize, label);
       Output(expression, textWriter, indent + 2 * IndentSize);
@@ -207,7 +208,7 @@ public static class ExpressionDumper {
   }
 
   private static void OutputExpressionCollection(TextWriter textWriter, int indent,
-      IEnumerable<Expression> expressions, string label) {
+    IEnumerable<Expression> expressions, string label) {
     bool labelWritten = false;
     foreach (Expression argument in expressions) {
       if (!labelWritten) {
@@ -220,13 +221,13 @@ public static class ExpressionDumper {
 
   static void Output(BinaryExpression expression, TextWriter textWriter, int indent) {
     WriteLineWithIndent(textWriter, indent,
-        String.Format("BinaryExpression:{0}{1}{2} (", expression.NodeType,
+      String.Format("BinaryExpression:{0}{1}{2} (", expression.NodeType,
         expression.IsLifted ? ", IsLifted" : "",
         expression.IsLiftedToNull ? ", IsLiftedToNull" : ""));
 
     if (expression.Method != null) {
       WriteLineWithIndent(textWriter, indent + IndentSize,
-          String.Format("Method: {0}", expression.Method));
+        String.Format("Method: {0}", expression.Method));
     }
 
     OutputSubExpression(expression.Conversion, textWriter, indent, "Conversion:");
@@ -238,7 +239,7 @@ public static class ExpressionDumper {
 
   static void Output(UnaryExpression expression, TextWriter textWriter, int indent) {
     WriteLineWithIndent(textWriter, indent,
-        String.Format("UnaryExpression:{0}{1}{2} (", expression.NodeType,
+      String.Format("UnaryExpression:{0}{1}{2} (", expression.NodeType,
         expression.IsLifted ? ", IsLifted" : "",
         expression.IsLiftedToNull ? ", IsLiftedToNull" : ""));
 
@@ -253,7 +254,7 @@ public static class ExpressionDumper {
 
   static void Output(MethodCallExpression expression, TextWriter textWriter, int indent) {
     WriteLineWithIndent(textWriter, indent,
-        String.Format("MethodCallExpression {0} (", FormatMethodInfo(expression.Method)));
+      String.Format("MethodCallExpression {0} (", FormatMethodInfo(expression.Method)));
 
     OutputExpressionCollection(textWriter, indent, expression.Arguments, "Arguments:");
     OutputSubExpression(expression.Object, textWriter, indent, "Object:");
@@ -261,7 +262,8 @@ public static class ExpressionDumper {
     WriteLineWithIndent(textWriter, indent, ")");
   }
 
-  static void Output(ConditionalExpression expression, TextWriter textWriter, int indent) {
+  static void Output(ConditionalExpression expression, TextWriter textWriter,
+    int indent) {
     WriteLineWithIndent(textWriter, indent, "ConditionalExpression (");
 
     OutputSubExpression(expression.Test, textWriter, indent, "Test:");
@@ -273,7 +275,7 @@ public static class ExpressionDumper {
 
   static void Output(ConstantExpression expression, TextWriter textWriter, int indent) {
     WriteLineWithIndent(textWriter, indent,
-        String.Format("ConstantExpression ({0})", expression.Value));
+      String.Format("ConstantExpression ({0})", expression.Value));
   }
 
   static void Output(InvocationExpression expression, TextWriter textWriter, int indent) {
@@ -288,14 +290,16 @@ public static class ExpressionDumper {
   static void Output(LambdaExpression expression, TextWriter textWriter, int indent) {
     WriteLineWithIndent(textWriter, indent, "LambdaExpression (");
 
-    OutputExpressionCollection(textWriter, indent, ExpressionList(expression.Parameters), "Parameters:");
+    OutputExpressionCollection(textWriter, indent, ExpressionList(expression.Parameters),
+      "Parameters:");
     OutputSubExpression(expression.Body, textWriter, indent, "Body:");
 
     WriteLineWithIndent(textWriter, indent, ")");
   }
 
-  private static IEnumerable<Expression> ExpressionList<TActualType>(IEnumerable<TActualType> sourceList)
-      where TActualType : Expression {
+  private static IEnumerable<Expression> ExpressionList<TActualType>(
+    IEnumerable<TActualType> sourceList)
+    where TActualType : Expression {
     foreach (TActualType item in sourceList) {
       yield return item;
     }
@@ -307,9 +311,11 @@ public static class ExpressionDumper {
     OutputSubExpression(expression.NewExpression, textWriter, indent, "NewExpression:");
     foreach (ElementInit elementInit in expression.Initializers) {
       WriteLineWithIndent(textWriter, indent + IndentSize,
-          String.Format("ElementInit AddMethod={0} (", FormatMethodInfo(elementInit.AddMethod)));
+        String.Format("ElementInit AddMethod={0} (",
+          FormatMethodInfo(elementInit.AddMethod)));
 
-      OutputExpressionCollection(textWriter, indent + IndentSize, elementInit.Arguments, "Arguments:");
+      OutputExpressionCollection(textWriter, indent + IndentSize, elementInit.Arguments,
+        "Arguments:");
 
       WriteLineWithIndent(textWriter, indent + IndentSize, ")");
     }
@@ -319,7 +325,7 @@ public static class ExpressionDumper {
 
   static void Output(MemberExpression expression, TextWriter textWriter, int indent) {
     WriteLineWithIndent(textWriter, indent,
-        String.Format("MemberExpression {0} (", FormatMemberInfo(expression.Member)));
+      String.Format("MemberExpression {0} (", FormatMemberInfo(expression.Member)));
 
     OutputSubExpression(expression.Expression, textWriter, indent, "Expression:");
 
@@ -337,18 +343,22 @@ public static class ExpressionDumper {
 
     foreach (MemberBinding memberBinding in expression.Bindings) {
       WriteLineWithIndent(textWriter, indent + IndentSize,
-          String.Format("MemberBinding:{0} {1} ()", memberBinding.BindingType, FormatMemberInfo(memberBinding.Member)));
+        String.Format("MemberBinding:{0} {1} ()", memberBinding.BindingType,
+          FormatMemberInfo(memberBinding.Member)));
     }
 
     WriteLineWithIndent(textWriter, indent, ")");
   }
 
   static void Output(NewExpression expression, TextWriter textWriter, int indent) {
-    WriteLineWithIndent(textWriter, indent, String.Format("NewExpression {0} (", FormatConstructorInfo(expression.Constructor)));
+    WriteLineWithIndent(textWriter, indent,
+      String.Format("NewExpression {0} (",
+        FormatConstructorInfo(expression.Constructor)));
 
     OutputExpressionCollection(textWriter, indent, expression.Arguments, "Arguments:");
     foreach (MemberInfo memberInfo in expression.Members) {
-      WriteLineWithIndent(textWriter, indent + IndentSize, String.Format("Member ({0})", FormatMemberInfo(memberInfo)));
+      WriteLineWithIndent(textWriter, indent + IndentSize,
+        String.Format("Member ({0})", FormatMemberInfo(memberInfo)));
     }
 
     WriteLineWithIndent(textWriter, indent, ")");
@@ -369,7 +379,7 @@ public static class ExpressionDumper {
 
   static void Output(NewArrayExpression expression, TextWriter textWriter, int indent) {
     WriteLineWithIndent(textWriter, indent,
-        String.Format("NewArrayExpression:{0} (", expression.NodeType));
+      String.Format("NewArrayExpression:{0} (", expression.NodeType));
 
     OutputExpressionCollection(textWriter, indent, expression.Expressions, "Expressions");
 
@@ -378,12 +388,13 @@ public static class ExpressionDumper {
 
   static void Output(ParameterExpression expression, TextWriter textWriter, int indent) {
     WriteLineWithIndent(textWriter, indent,
-        String.Format("ParameterExpression ({0})", expression.Name));
+      String.Format("ParameterExpression ({0})", expression.Name));
   }
 
   static void Output(TypeBinaryExpression expression, TextWriter textWriter, int indent) {
     WriteLineWithIndent(textWriter, indent,
-        String.Format("TypeBinaryExpression TypeOperand={0} (", FormatType(expression.TypeOperand)));
+      String.Format("TypeBinaryExpression TypeOperand={0} (",
+        FormatType(expression.TypeOperand)));
 
     OutputSubExpression(expression.Expression, textWriter, indent, "Expression:");
 

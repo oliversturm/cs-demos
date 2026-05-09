@@ -5,7 +5,8 @@
     public int Width { get; init; }
     public int Height { get; init; }
 
-    public override string ToString() => $"SizeStruct {{ Width = {Width}, Height = {Height} }}";
+    public override string ToString() =>
+      $"SizeStruct {{ Width = {Width}, Height = {Height} }}";
   }
 
   class Program {

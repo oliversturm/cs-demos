@@ -2,8 +2,6 @@
 
 namespace PartialClasses {
   public class Baseclass {
-    public Baseclass() {
-
-    }
+    public Baseclass() { }
   }
 }

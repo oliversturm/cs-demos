@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace PatternMatching {
   class Program {
-    static void Main(string[] args) {
-    }
+    static void Main(string[] args) { }
 
     static void DoMagic(object val) {
       // Using 'is' with the pattern 'null'

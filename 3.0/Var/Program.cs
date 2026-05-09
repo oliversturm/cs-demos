@@ -25,9 +25,7 @@ namespace Var {
     //var x = 10;
 
     class Order {
-      public Order() {
-
-      }
+      public Order() { }
     }
   }
 }

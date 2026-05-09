@@ -30,9 +30,9 @@
       // some reason the compiler can't figure out a common base type
       // for the result.
       var getThing = Thing (bool condition) =>
-        condition ?
-          new SingingThing("Rod Stewart", "I am sailing") :
-          new DancingThing("Angus Young", "Rumpelstiltskin");
+        condition
+          ? new SingingThing("Rod Stewart", "I am sailing")
+          : new DancingThing("Angus Young", "Rumpelstiltskin");
     }
   }
 }

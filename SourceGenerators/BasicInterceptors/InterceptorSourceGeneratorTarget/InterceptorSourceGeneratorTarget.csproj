@@ -10,14 +10,14 @@
         <!-- Opt in to interceptors for the generator's namespace.
              In .NET 10, interceptors are stable - the property is
              InterceptorsNamespaces (not InterceptorsPreviewNamespaces). -->
-<!--        <InterceptorsNamespaces>$(InterceptorsNamespaces);InterceptorSourceGenerator</InterceptorsNamespaces>-->
+        <!--        <InterceptorsNamespaces>$(InterceptorsNamespaces);InterceptorSourceGenerator</InterceptorsNamespaces>-->
     </PropertyGroup>
 
     <ItemGroup>
         <!-- Unlike the original C# 12 version, these references are
              active - the generator is wired up and running. -->
-<!--        <ProjectReference Include="..\InterceptorSourceGenerator\InterceptorSourceGenerator.csproj"-->
-<!--                          OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>-->
+        <!--        <ProjectReference Include="..\InterceptorSourceGenerator\InterceptorSourceGenerator.csproj"-->
+        <!--                          OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>-->
     </ItemGroup>
 
 </Project>

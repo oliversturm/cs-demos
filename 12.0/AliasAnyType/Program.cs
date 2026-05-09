@@ -6,10 +6,13 @@
   // that aliases only save some typing -- they don't exist at runtime.
   using IntList = List<int>;
   using Curry3 = Func<int, Func<int, Func<int, int>>>;
-  using Curry8 = Func<int, Func<int, Func<int, Func<int, Func<int, Func<int, Func<int, Func<int, int>>>>>>>>;
+  using Curry8 =
+    Func<int, Func<int,
+      Func<int, Func<int, Func<int, Func<int, Func<int, Func<int, int>>>>>>>>;
   using Curry8String =
     Func<string, Func<string,
-      Func<string, Func<string, Func<string, Func<string, Func<string, Func<string, string>>>>>>>>;
+      Func<string, Func<string,
+        Func<string, Func<string, Func<string, Func<string, string>>>>>>>>;
 
   // The aliases can't have their own generic parameters though.
   //using Curry3<T> = Func<T, Func<T, Func<T, T>>>;

@@ -17,7 +17,8 @@ class Program {
 
     Console.WriteLine($"Old style parse '42': {parseOldStyle("42", out var r1)} -> {r1}");
     Console.WriteLine($"New style parse '42': {parseNewStyle("42", out var r2)} -> {r2}");
-    Console.WriteLine($"New style parse 'abc': {parseNewStyle("abc", out var r3)} -> {r3}");
+    Console.WriteLine(
+      $"New style parse 'abc': {parseNewStyle("abc", out var r3)} -> {r3}");
 
     // Works with ref parameters too
     RefAction<int> doubleIt = (ref value) => value *= 2;

@@ -15,7 +15,6 @@ namespace Tuples {
       var name2 = GetName_();
       Console.WriteLine($"Name is {name2.first} {name2.last}");
 
-
       // Deconstructing tuple values
       (var first, var last) = GetName();
 
@@ -70,6 +69,7 @@ namespace Tuples {
     static (string one, int two, string three, int four) GetComplex() {
       return ("10", 20, "30", 40);
     }
+
     public class Person {
       public string Name { get; set; }
       public int Age { get; set; }

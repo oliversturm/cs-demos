@@ -10,9 +10,9 @@ namespace ExtensionMethods {
 
   class Program {
     static void Main(string[] args) {
-      string[] strings = { "To be or not to be",
-                           "That is the question",
-                           "Whether tis nobler" };
+      string[] strings = {
+        "To be or not to be", "That is the question", "Whether tis nobler"
+      };
 
       string hamlet = strings.Concatenate(",");
       Console.WriteLine(hamlet);
@@ -33,10 +33,7 @@ namespace ExtensionMethods {
           10);
 
       var results2 =
-        EndlessListFunction().
-        Apply(Square).
-        Apply(x => x / 2).
-        Take(10);
+        EndlessListFunction().Apply(Square).Apply(x => x / 2).Take(10);
     }
 
     public static IEnumerable<int> EndlessListFunction() {
@@ -81,7 +78,8 @@ namespace MyStuff {
             yield break;
     }
 
-    public static IEnumerable<T> Apply<T>(this IEnumerable<T> values, Func<T, T> calculation) {
+    public static IEnumerable<T> Apply<T>(this IEnumerable<T> values,
+      Func<T, T> calculation) {
       foreach (T val in values)
         yield return calculation(val);
     }

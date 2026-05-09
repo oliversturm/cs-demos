@@ -79,7 +79,8 @@ namespace Dynamic {
   }
 
   public class MyDynamicType : DynamicObject {
-    public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result) {
+    public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args,
+      out object result) {
       Console.WriteLine("Invoking member {0}", binder.Name);
       result = null;
       return true;

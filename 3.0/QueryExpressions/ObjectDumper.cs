@@ -84,7 +84,8 @@ public class ObjectDumper {
       }
     }
     else {
-      MemberInfo[] members = o.GetType().GetMembers(BindingFlags.Public | BindingFlags.Instance);
+      MemberInfo[] members =
+        o.GetType().GetMembers(BindingFlags.Public | BindingFlags.Instance);
       WriteIndent();
       Write(prefix);
       bool propWritten = false;

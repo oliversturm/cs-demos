@@ -16,7 +16,8 @@ namespace AsyncAwait {
       DateTime start = DateTime.Now;
       // Loop for max 15 seconds
       while (DateTime.Now - start < TimeSpan.FromSeconds(15)) {
-        Console.WriteLine("Main program is alive, Task id={0}, Thread id={1}", Task.CurrentId, Thread.CurrentThread.ManagedThreadId);
+        Console.WriteLine("Main program is alive, Task id={0}, Thread id={1}",
+          Task.CurrentId, Thread.CurrentThread.ManagedThreadId);
         Thread.Sleep(100);
       }
     }
@@ -38,9 +39,11 @@ namespace AsyncAwait {
       // Update - this doesn't render any useful information in modern .NET versions.
 
       try {
-        Console.WriteLine("First output from PrintWaitPrint, Task id={0}, Thread id={1}", Task.CurrentId, Thread.CurrentThread.ManagedThreadId);
+        Console.WriteLine("First output from PrintWaitPrint, Task id={0}, Thread id={1}",
+          Task.CurrentId, Thread.CurrentThread.ManagedThreadId);
         await Task.Delay(1000);
-        Console.WriteLine("Second output from PrintWaitPrint, Task id={0}, Thread id={1}", Task.CurrentId, Thread.CurrentThread.ManagedThreadId);
+        Console.WriteLine("Second output from PrintWaitPrint, Task id={0}, Thread id={1}",
+          Task.CurrentId, Thread.CurrentThread.ManagedThreadId);
       }
       finally {
         Console.WriteLine("Done with PrintWaitPrint");

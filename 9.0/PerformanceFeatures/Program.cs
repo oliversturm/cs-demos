@@ -27,7 +27,8 @@
 
       // Size is the same that can be retrieved by sizeof(nuint), but can be
       // evaluated without an `unsafe` context.
-      Console.WriteLine($"On this system, nuint min={nuint.MinValue}, max={nuint.MaxValue}. Size is {nuint.Size}.");
+      Console.WriteLine(
+        $"On this system, nuint min={nuint.MinValue}, max={nuint.MaxValue}. Size is {nuint.Size}.");
 
       // Since nuint uses UIntPtr as its type, there are many utility methods --
       // they are not usually needed to interact with the type.
