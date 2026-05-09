@@ -1,7 +1,24 @@
 namespace UnboundGenericNameof;
 
+[AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+class CategoryAttribute : Attribute {
+  public CategoryAttribute(string name) { }
+  public CategoryAttribute(Type type) { }
+}
+
 class Program {
+  [Category(typeof(List<>))] // OK - typeof() is allowed in attributes
+  [Category(nameof(List<>))] // OK - "List" (lossy)
+  [Category(nameof(List<int>))] // OK - "List" (lossy, and the int is a lie)
+  // This would be the syntax that actually shows the correct name, but
+  // in the place where it's most realistically useful, it's not allowed.
+  //[Category(typeof(List<>).Name)] // ERROR - .Name isn't a constant expression
   static void Main(string[] args) {
+    // NOTE that in spite of the news here, nameof is really the wrong
+    // tool for handling of generic types, because the output doesn't
+    // mention the generic parameters so that the type might look
+    // just like a non-generic one with the same name.
+
     // Before C# 14, nameof() required a closed generic type:
     Console.WriteLine(nameof(List<int>)); // "List"
     Console.WriteLine(nameof(Dictionary<int, string>)); // "Dictionary"
@@ -11,23 +28,12 @@ class Program {
     Console.WriteLine(nameof(List<>)); // "List"
     Console.WriteLine(nameof(Dictionary<,>)); // "Dictionary"
 
-    // This is particularly useful for logging and diagnostics where
-    // you want to refer to a generic type without committing to a
-    // specific type argument.
-    LogTypeUsage<int>();
-    LogTypeUsage<string>();
+    // For comparison - ugly, but at least you can tell that it's a generic type.
+    Console.WriteLine(typeof(List<>).Name); // "List`1"
 
     // Also works with custom generic types
     Console.WriteLine(nameof(MyGenericType<>)); // "MyGenericType"
     Console.WriteLine(nameof(MyGenericType<,>)); // "MyGenericType"
-  }
-
-  // A realistic scenario: logging infrastructure that references
-  // the generic type by name without needing a type parameter.
-  static void LogTypeUsage<T>() {
-    // Before C# 14, you'd have to use typeof(List<>).Name or
-    // pick a dummy type argument like nameof(List<object>).
-    Console.WriteLine($"Processing {nameof(List<>)}<{typeof(T).Name}>");
   }
 }
 

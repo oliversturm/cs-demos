@@ -22,4 +22,7 @@ internal class Program {
   // and the method itself just passes it through.
   // public static string Create<TState>(int length, TState state, SpanAction<char, TState> action)
   //   where TState : allows ref struct;
+
+  // See the demo RefStructInterfaces for an example where this new generic
+  // constraint is used.
 }

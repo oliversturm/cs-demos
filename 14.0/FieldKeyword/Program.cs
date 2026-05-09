@@ -32,10 +32,10 @@ class Person {
   // Before C# 14, adding validation to a setter required a manual
   // backing field:
   //
-  //   private string _name = "Unknown";
+  //   private string name = "Unknown";
   //   public string Name {
-  //     get => _name;
-  //     set => _name = value ?? throw new ArgumentNullException(nameof(value));
+  //     get => name;
+  //     set => name = value ?? throw new ArgumentNullException(nameof(value));
   //   }
   //
   // Now, `field` refers to the compiler-generated backing field directly.

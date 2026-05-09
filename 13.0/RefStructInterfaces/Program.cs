@@ -5,6 +5,7 @@ public interface IMovable {
   void Advance();
 }
 
+// New: ref structs can now implement interfaces
 public ref struct Turtle : IMovable {
   public int DistanceFromZero { get; set; }
 
@@ -33,6 +34,10 @@ public class Program {
 
     // Not even in the most basic case
     //IMovable m = turtle;
+
+    // So the question is how we can actually use the interface
+    // for interface-y things...
+    // Answer: only by way of a generic type that has "allow ref struct"
 
     Move(ref turtle);
     Move(ref person);

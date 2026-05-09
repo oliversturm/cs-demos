@@ -3,30 +3,31 @@ namespace SpanConversions;
 class Program {
   static void Main(string[] args) {
     // C# 14 adds first-class implicit conversions for Span<T> and
-    // ReadOnlySpan<T>. These types have been central to high-performance
-    // .NET code, and the new conversions make them easier to use.
+    // ReadOnlySpan<T>.
 
-    // Array to Span -- this worked before, but now participates
-    // in more conversion contexts.
-    int[] array = [1, 2, 3, 4, 5];
-    Span<int> span = array;
-    ReadOnlySpan<int> readOnlySpan = span;
+    string s = "hello";
+    //Print(s); // this still doesn't work without type hint
+    Print<char>(s);
 
-    // String to ReadOnlySpan<char> -- now an implicit conversion in
-    // all contexts, enabling natural use in method calls.
-    string text = "Hello, Spans!";
-    ReadOnlySpan<char> chars = text;
-    Console.WriteLine($"First char from span: {chars[0]}");
+    int[] arr = [1, 2, 3];
+    Print(arr); // but this works - would have failed in C# 13
 
     // The key improvement: overload resolution now naturally picks
     // Span-based overloads, and generic type inference works with spans.
-    PrintItems(array);
+    // But NOTE: this is dangerous stuff. Three out of the calls below
+    // now pick the ReadOnlySpan<T> overload, but one does not.
+    PrintItems([1, 2, 3]);
+    PrintItems(arr); // <- this one prefers the T[] overload
     PrintItems(span);
     PrintItems(readOnlySpan);
+  }
 
-    // Span conversions compose with other conversions, so a method
-    // accepting ReadOnlySpan<char> can be called with a string directly.
-    CountVowels("Hello, World!");
+  static void Print<T>(ReadOnlySpan<T> items) {
+    // doing nothing
+  }
+
+  static void PrintItems<T>(T[] ts) {
+    Console.WriteLine("In PrintItems<T>(T[]) - didn't expect to be here.");
   }
 
   // A method accepting ReadOnlySpan<T> can now be called with an array
@@ -38,15 +39,5 @@ class Program {
       Console.Write(items[i]);
     }
     Console.WriteLine();
-  }
-
-  // A practical example: accepting ReadOnlySpan<char> lets this method
-  // work with both strings and char spans without overloads.
-  static void CountVowels(ReadOnlySpan<char> text) {
-    int count = 0;
-    foreach (char c in text) {
-      if ("aeiouAEIOU".Contains(c)) count++;
-    }
-    Console.WriteLine($"Vowels in \"{text}\": {count}");
   }
 }

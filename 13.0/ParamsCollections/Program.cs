@@ -11,13 +11,7 @@ internal class Program {
     // In this demo program, that's the span.
     TakeThis(16, 17, 18, 19, 20);
 
-    List<int> list = [
-      21,
-      22,
-      23,
-      24,
-      25
-    ];
+    List<int> list = [21, 22, 23, 24, 25];
     // Still a span!
     TakeThis(list);
 

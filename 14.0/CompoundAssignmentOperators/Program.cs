@@ -11,14 +11,14 @@ class Program {
     var counter = new PartyCounter("Birthday Party");
     Console.WriteLine($"Initial: {counter}");
 
-    // Compound assignment -- calls the instance operator+=,
+    // Compound assignment - calls the instance operator+=,
     // modifying the counter in place without creating a new object.
     counter += 5;
     Console.WriteLine($"After += 5: {counter}");
     counter += 3;
     Console.WriteLine($"After += 3: {counter}");
 
-    // Increment -- also an instance operator
+    // Increment - also an instance operator
     counter++;
     Console.WriteLine($"After ++: {counter}");
 
@@ -33,9 +33,9 @@ class PartyCounter(string name) {
   public string Name => name;
   public int Count { get; private set; }
 
-  // Traditional static binary operator -- creates a new instance
+  // Traditional static binary operator - creates a new instance
   public static PartyCounter operator +(PartyCounter left, int right) {
-    Console.WriteLine("  (operator+ called -- creating new counter)");
+    Console.WriteLine("  (operator+ called - creating new counter)");
     var result = new PartyCounter(left.Name) { Count = left.Count + right };
     return result;
   }
@@ -46,13 +46,13 @@ class PartyCounter(string name) {
   //   - Returns void (mutation in place, no new object)
   //   - Takes one parameter (the right-hand operand)
   public void operator += (int partySize) {
-    Console.WriteLine("  (operator+= called -- modifying in place)");
+    Console.WriteLine("  (operator+= called - modifying in place)");
     Count += partySize;
   }
 
   // Increment and decrement are also supported
   public void operator ++() {
-    Console.WriteLine("  (operator++ called -- modifying in place)");
+    Console.WriteLine("  (operator++ called - modifying in place)");
     Count++;
   }
 

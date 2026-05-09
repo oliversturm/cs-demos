@@ -20,7 +20,7 @@ class Program {
 // This is useful for source generator scenarios where generated
 // code provides the boilerplate and hand-written code adds logic.
 
-// Defining declaration -- could be in a source-generated file
+// Defining declaration - could be in a source-generated file
 partial class Widget {
   public string Name { get; }
   public string Id { get; }
@@ -32,7 +32,7 @@ partial class Widget {
   public partial event EventHandler<string>? StatusChanged;
 }
 
-// Implementing declaration -- hand-written code
+// Implementing declaration - hand-written code
 partial class Widget {
   // Only the implementing declaration can include a constructor
   // initializer (`: this()` or `: base()`).
@@ -43,18 +43,18 @@ partial class Widget {
   }
 
   // The implementing declaration must include add and remove accessors.
-  private EventHandler<string>? _statusChanged;
+  private EventHandler<string>? statusChanged;
   public partial event EventHandler<string>? StatusChanged {
     add {
       Console.WriteLine("  (Event handler added)");
-      _statusChanged += value;
+      statusChanged += value;
     }
     remove {
       Console.WriteLine("  (Event handler removed)");
-      _statusChanged -= value;
+      statusChanged -= value;
     }
   }
 
-  public void Activate() => _statusChanged?.Invoke(this, "Active");
-  public void Deactivate() => _statusChanged?.Invoke(this, "Inactive");
+  public void Activate() => statusChanged?.Invoke(this, "Active");
+  public void Deactivate() => statusChanged?.Invoke(this, "Inactive");
 }

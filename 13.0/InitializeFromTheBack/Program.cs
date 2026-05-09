@@ -1,8 +1,13 @@
-﻿namespace InitializeFromTheBack;
+﻿using System.Reflection.Emit;
+
+namespace InitializeFromTheBack;
 
 // Example copied from Microsoft docs. This assignment of the whole
 // value to Values (although that's not really the whole value, is it)
 // works only in this pretty specific case.
+
+// An advantage is that you can set a value from a back-index that you
+// won't need to change if the total length of the array changes.
 internal class Program {
   private static void Main() {
     CalculationMatrix x = new() {
@@ -24,3 +29,5 @@ internal class Program {
 public class CalculationMatrix {
   public int[] MagicValues { get; set; } = new int[10];
 }
+
+public record FrameBytes(byte[] Content);

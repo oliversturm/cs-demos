@@ -266,3 +266,5 @@ csharp_wrap_collection_expression_style = chop_if_long
 csharp_keep_existing_initializer_arrangement = false
 csharp_place_simple_initializer_on_single_line = true
 csharp_max_initializer_elements_on_line = 100
+csharp_wrap_collection_expression_style = chop_if_long
+csharp_max_collection_expression_elements_on_line = 100
