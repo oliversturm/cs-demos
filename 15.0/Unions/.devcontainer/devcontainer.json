@@ -1,0 +1,13 @@
+{
+    "name": "C# 15 Unions",
+    "image": "mcr.microsoft.com/dotnet/nightly/sdk:11.0-preview",
+    "customizations": {
+      "vscode": {
+        "extensions": ["ms-dotnettools.csdevkit"]
+      }
+    },
+    "postCreateCommand": "dotnet tool install --global ilspycmd",
+     "remoteEnv": {
+      "PATH": "${containerEnv:PATH}:/root/.dotnet/tools"
+    }
+  }
